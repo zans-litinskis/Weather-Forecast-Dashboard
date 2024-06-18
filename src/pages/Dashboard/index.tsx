@@ -51,8 +51,35 @@ const Dashboard = () => {
   const { value, execute, status } = useWeatherData(formik.values);
 
   return (
-    <Container sx={{ paddingY: 4 }}>
-      <Card>
+    <Container sx={{ paddingY: 2 }}>
+      <Box
+        display={"flex"}
+        flexWrap={"wrap"}
+        alignItems={"center"}
+        justifyContent={"center"}
+        gap={2}
+      >
+        <img
+          width={80}
+          height={80}
+          src="https://cdn-icons-png.flaticon.com/256/6142/6142570.png"
+          alt="weather"
+        />
+        <Typography
+          sx={{
+            fontSize: {
+              xs: "1.5rem",
+              sm: "2.125rem",
+            },
+          }}
+          align="center"
+          fontWeight={"bold"}
+        >
+          Weather Forecast Dashboard
+        </Typography>
+      </Box>
+
+      <Card sx={{ marginTop: 2 }}>
         <CardContent>
           <form
             onSubmit={formik.handleSubmit}
@@ -62,7 +89,7 @@ const Dashboard = () => {
             <Typography variant="h5" fontWeight={"bold"}>
               Location and Date
             </Typography>
-            <Grid container direction="row" spacing={2} sx={{ marginTop: 2 }}>
+            <Grid container direction="row" spacing={2} sx={{ marginTop: 1 }}>
               <Grid item xs={12} sm={6} md={3}>
                 <TextField
                   fullWidth

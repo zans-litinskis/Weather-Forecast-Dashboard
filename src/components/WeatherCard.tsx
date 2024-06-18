@@ -31,7 +31,7 @@ const WeatherItem = ({ img, alt, value }: WeatherItemProps) => (
     sm={6}
     md={3}
     display={"flex"}
-    sx={{ alignItems: "center", paddingY: 1 }}
+    sx={{ alignItems: "center", paddingY: 0.5 }}
   >
     <img
       width={60}
