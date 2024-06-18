@@ -1,6 +1,6 @@
 # Weather Forecast Dashboard
 
-![image](https://github.com/webgod0123/Weather-Forecast-Dashboard/assets/91973281/b7a59067-4a27-44c8-a650-3ed157030e15)
+![image](https://github.com/zans-litinskis/Weather-Forecast-Dashboard/assets/170083494/2d726b29-7b30-4c5c-85d7-c83b2fc42b24)
 
 
 This project is a weather dashboard application built using React, TypeScript, Material-UI, Formik, Yup, and Highcharts. It fetches weather data from the Open Meteo API for a given location (latitude and longitude) and date, displaying temperature, precipitation, wind speed, and other relevant information.
