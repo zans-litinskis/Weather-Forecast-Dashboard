@@ -36,7 +36,7 @@ Follow these steps to set up and run the project:
 1. **Clone the repository:**
 
    ```bash
-   git clone https://github.com/zans-litinskis/Weather-Forecast-Dashboard
+   git clone https://github.com/zans-litinskis/Weather-Forecast-Dashboard.git
    cd weather-dashboard
    ```
 2. **Install dependencies:**
