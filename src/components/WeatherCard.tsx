@@ -7,7 +7,9 @@ import {
   Typography,
 } from "@mui/material";
 import dayjs from "dayjs";
-import { Status, weatherConditions } from "../api";
+import WeatherItem from "./WeatherItem";
+import { Status, WEATHER_CONDITIONS } from "../api";
+import { Calendar, Temperature, Wind } from "../assets/images";
 
 interface CurrentWeather {
   time: string;
@@ -17,32 +19,6 @@ interface CurrentWeather {
   weatherCondition: string;
   windSpeed10m: number;
 }
-
-interface WeatherItemProps {
-  img: string;
-  alt: string;
-  value: string;
-}
-
-const WeatherItem = ({ img, alt, value }: WeatherItemProps) => (
-  <Grid
-    item
-    xs={12}
-    sm={6}
-    md={3}
-    display={"flex"}
-    sx={{ alignItems: "center", paddingY: 0.5 }}
-  >
-    <img
-      width={60}
-      height={60}
-      src={img}
-      alt={alt}
-      style={{ marginRight: 16 }}
-    />
-    {value}
-  </Grid>
-);
 
 const WeatherCard = ({
   data,
@@ -72,22 +48,22 @@ const WeatherCard = ({
           ) : (
             <Grid container direction={"row"}>
               <WeatherItem
-                img="https://i.ibb.co/s97pdD6/png-transparent-computer-icons-schedule-miscellaneous-text-rectangle-removebg-preview.png"
+                img={Calendar}
                 alt="date time"
                 value={dayjs(data.time).format("HH:mm, D MMMM YYYY")}
               />
               <WeatherItem
-                img="https://i.ibb.co/T8638jD/image-1-removebg-preview.png"
+                img={Temperature}
                 alt="temperature"
                 value={`${data.temperature2m.toFixed(2)}°C`}
               />
               <WeatherItem
-                img={weatherConditions[data.weatherCode].iconUrl}
+                img={WEATHER_CONDITIONS[data.weatherCode].iconUrl}
                 alt="weather condition"
-                value={`${weatherConditions[data.weatherCode].name}`}
+                value={`${WEATHER_CONDITIONS[data.weatherCode].name}`}
               />
               <WeatherItem
-                img="https://i.ibb.co/kSspHWm/Screenshot-20-removebg-preview.png"
+                img={Wind}
                 alt="wind speed"
                 value={`${data.windSpeed10m.toFixed(2)}km/h`}
               />

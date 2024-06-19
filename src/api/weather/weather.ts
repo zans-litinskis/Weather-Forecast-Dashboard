@@ -1,10 +1,10 @@
 import { fetchWeatherApi } from "openmeteo";
-import { useState, useCallback, useEffect } from "react";
+import { useState } from "react";
 import dayjs from "dayjs";
 
 const API_URL = "https://api.open-meteo.com/v1/forecast";
 
-export const weatherConditions: {
+export const WEATHER_CONDITIONS: {
   [key: number]: { name: string; iconUrl: string };
 } = {
   0: {
@@ -141,15 +141,12 @@ export type Status = "idle" | "pending" | "success" | "error";
 const range = (start: number, stop: number, step: number) =>
   Array.from({ length: (stop - start) / step }, (_, i) => start + i * step);
 
-export const useWeatherData = (
-  params: WeatherQueryParams,
-  immediate = false
-) => {
+export const useWeatherData = () => {
   const [status, setStatus] = useState<Status>("idle");
   const [value, setValue] = useState<any>();
   const [error, setError] = useState<Error | undefined>();
 
-  const execute = useCallback(async () => {
+  const execute = async (params: WeatherQueryParams) => {
     setError(undefined);
     setStatus("pending");
 
@@ -230,13 +227,7 @@ export const useWeatherData = (
       setError(error as Error);
       setStatus("error");
     }
-  }, [params]);
-
-  useEffect(() => {
-    if (immediate) {
-      execute();
-    }
-  }, [immediate, execute]);
+  };
 
   return {
     execute,
